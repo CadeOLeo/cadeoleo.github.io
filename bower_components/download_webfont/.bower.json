@@ -1,0 +1,12 @@
+{
+  "name": "download_webfont",
+  "_cacheHeaders": {
+    "Content-Length": "42108",
+    "Content-Type": "",
+    "Content-Disposition": "attachment; filename=\"cadeoleo.zip\""
+  },
+  "_source": "http://www.fontsaddict.com/ajax/download_webfont.php?file=231a495f5fa24aa84cbe08f31b4666dd&name=cadeoleo",
+  "_target": "*",
+  "_originalSource": "http://www.fontsaddict.com/ajax/download_webfont.php?file=231a495f5fa24aa84cbe08f31b4666dd&name=cadeoleo",
+  "_direct": true
+}

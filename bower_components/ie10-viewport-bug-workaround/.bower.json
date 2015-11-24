@@ -1,0 +1,14 @@
+{
+  "name": "ie10-viewport-bug-workaround",
+  "_cacheHeaders": {
+    "ETag": "\"479a6ebdae4682b89130688758d3cbdb61621d18\"",
+    "Content-Length": "641",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:479a6ebda",
+  "main": "index.js",
+  "_source": "https://raw.githubusercontent.com/twbs/bootstrap/16b48259a62f576e52c903c476bd42b90ab22482/docs/assets/js/ie10-viewport-bug-workaround.js",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/twbs/bootstrap/16b48259a62f576e52c903c476bd42b90ab22482/docs/assets/js/ie10-viewport-bug-workaround.js",
+  "_direct": true
+}
