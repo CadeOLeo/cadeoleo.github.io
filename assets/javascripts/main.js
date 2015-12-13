@@ -19,6 +19,8 @@
         immediateUpdates: true
     });
 
+    $("#dateEnd").datepicker("setDate", new Date());
+
     $('.input-group > .date').on("changeDate", function() {
         c = CadeOLeo.Ver.v(
             $('#dateStart').datepicker('getUTCDate'),
