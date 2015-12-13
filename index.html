@@ -11,6 +11,7 @@
     <meta name="theme-color" content="#2790E8">
     <meta name="msapplication-navbutton-color" content="#2790E8">
     <meta name="apple-mobile-web-app-status-bar-style" content="#2790E8">
+    <meta name="mobile-web-app-capable" content="yes">
 
     <title>CadeOLeo!Ver</title>
 
@@ -22,6 +23,8 @@
     <link href="bower_components/jumbotron-narrow/index.css" rel="stylesheet">
 
     <link href="bower_components/download_webfont/cadeoleo.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
     <link href="assets/stylesheets/index.css" rel="stylesheet" media="screen">
   </head>
@@ -60,6 +63,21 @@
           e como nosso Léo nasceu em <span id="leo-birthday" data-leo-birthday="2015-10-22">22/10/2015</span> <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> <span id="leo-version" class="btn btn-lg btn-primary">v0.1.2</span></p>
       </div>
 
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="text-center">Calcule sua versão!</h2>
+
+          <div class="input-group input-daterange">
+              <input id="dateStart" type="text" class="date form-control" placeholder="Início">
+              <span class="input-group-addon"> - </span>
+              <input id="dateEnd" type="text" class="date form-control" placeholder="Fim">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+          </div>
+
+          <p id="result-version" class="text-center btn-lg btn-success">v0.0.0</p>
+        </div>
+      </div>
+
       <div class="row marketing">
         <div class="col-lg-6">
           <h4><span class="cadeoleo-two" aria-hidden="true"></span> Para coisas mais importantes que software</h4>
@@ -90,11 +108,14 @@
 
     </div> <!-- /container -->
 
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="bower_components/ie10-viewport-bug-workaround/index.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
     <script type="text/javascript" src="bower_components/moment-precise-range-object/readable-range.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/locales/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
+
     <script src="assets/javascripts/cadeoleo.js"></script>
     <script src="assets/javascripts/main.js"></script>
   </body>
