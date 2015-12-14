@@ -18,6 +18,14 @@
 
     <title>CadeOLeo!Ver</title>
 
+    <script>
+        // https://konklone.com/post/github-pages-now-sorta-supports-https-so-use-it
+        var host = "cadeoleo.github.io";
+        if ((host == window.location.host) && (window.location.protocol != "https:")) {
+          window.location.protocol = "https";
+        }
+    </script>
+
     <!-- Bootstrap core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/bootswatch/cerulean/bootstrap.min.css" rel="stylesheet">
