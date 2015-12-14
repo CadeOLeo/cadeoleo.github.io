@@ -8,9 +8,9 @@
     <meta name="description" content="cade o leo, cadeoleo, cadeoleo2015, cadeoleo!ver">
     <meta name="author" content="@RogerioPradoJ">
     <link rel="icon" sizes="192x192" href="assets/images/favicon.ico">
-    <meta name="theme-color" content="#2790E8">
-    <meta name="msapplication-navbutton-color" content="#2790E8">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#2790E8">
+    <meta name="theme-color" content="#03337C">
+    <meta name="msapplication-navbutton-color" content="#03337C">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#03337C">
     <meta name="mobile-web-app-capable" content="yes">
 
     <title>CadeOLeo!Ver</title>
@@ -26,46 +26,64 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="bower_components/flags/flags.css">
+
     <link href="assets/stylesheets/index.css" rel="stylesheet" media="screen">
   </head>
 
   <body>
 
     <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="index.html">Português</a></li>
-            <li role="presentation" class="active"><a href="#">English</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">CadeOLeo!Ver</h3>
-      </div>
+
+      <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">CadeOLeo!Ver</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="./"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="flag flag-br" alt="pt-BR"> Português</a></li>
+              <li class="active"><a href="./index_en.html"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="flag flag-gb" alt="en"> English<span class="sr-only">(current)</span></a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
 
       <div class="jumbotron">
         <h1>
-          <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+          <span class="cadeoleo-baby-1" aria-hidden="true"></span>
           Cadê o Léo!
           <span class="cadeoleo-lion" aria-hidden="true"></span>
         </h1>
         <p>
           <span>...</span><br>
-          The versioning schema for your little ones <span class="cadeoleo-baby-1" aria-hidden="true"></span>
+          The versioning schema for your little ones <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
           <br><span>...</span>
         </p>
         <p>
           <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
             <span class="vBracket">{</span> <span class="vYears">years</span> . <span class="vMonths">months</span> . <span class="vDays">days</span> <span class="vBracket">}</span>
-          <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></p>
-        <p>
-          <span>...</span><br>
-          <span class="cadeoleo-skate" aria-hidden="true"></span>
-          as our Léo was born in <span id="leo-birthday" data-leo-birthday="2015-10-22">2015-10-22</span> <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> <span id="leo-version" class="btn btn-lg btn-primary">v0.1.2</span></p>
+          <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+        </p>
       </div>
+
+      <div>
+        <p class="text-center">
+          <a href="#calc" class="btn btn-lg btn-primary">check your version &raquo;</a>
+        </p>
+      </div>
+
+      <hr>
 
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h2 class="text-center">Find you version!</h2>
+          <h2 id="calc" class="text-center">Check your version</h2>
 
           <div class="input-group input-daterange">
               <input id="dateStart" type="text" class="date form-control" placeholder="...">
@@ -73,10 +91,17 @@
               <input id="dateEnd" type="text" class="date form-control" placeholder="...">
               <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
           </div>
-
-          <p id="result-version" class="text-center btn-lg btn-success">v0.0.0</p>
+          <br>
+          <p class="text-center">
+            <span id="result-version" class="version well well-sm">v0.0.0</span>
+          </p>
         </div>
+        <p class="text-center">
+          <button type="button" data-toggle="modal" data-target="#leo-modal" class="btn btn-link">see Léo's version &raquo;</button>
+        </p>
       </div>
+
+      <hr>
 
       <div class="row marketing">
         <div class="col-lg-6">
@@ -108,13 +133,52 @@
 
     </div> <!-- /container -->
 
+    <div id="leo-modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center">
+              <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+              <span class="vBracket">{</span> <span class="vYears">years</span> . <span class="vMonths">months</span> . <span class="vDays">days</span> <span class="vBracket">}</span>
+              <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+            </h4>
+          </div>
+          <div class="modal-body">
+            <p class="text-center">
+              <span class="cadeoleo-skate" aria-hidden="true"></span>
+              &nbsp;
+              <span class="cadeoleo-skate" aria-hidden="true"></span>
+              &nbsp;
+              <span class="cadeoleo-skate" aria-hidden="true"></span>
+              <br>
+              <br>
+              As our Léo was born in <span id="leo-birthday" data-leo-birthday="2015-10-22">2015-10-22</span>,
+              <br>
+              <br>
+              <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+              <span id="leo-version" class="version well well-sm">v0.1.2</span>
+              <span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span>
+              <br>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="bower_components/ie10-viewport-bug-workaround/index.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
     <script type="text/javascript" src="bower_components/moment-precise-range-object/readable-range.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/locales/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
+
+    <script src="bower_components/jquery-flash-element/index.js"></script>
 
     <script src="assets/javascripts/cadeoleo.js"></script>
     <script src="assets/javascripts/main.js"></script>

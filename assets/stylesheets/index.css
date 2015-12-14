@@ -1,15 +1,24 @@
 .vYears {
-  font-size: 2.5em;
+  font-size: 1.3em;
   color: #2FA4E7;
 }
 .vMonths {
-  font-size: 2.5em;
+  font-size: 1.3em;
   color: #73A839;
 }
 .vDays {
-  font-size: 2.5em;
+  font-size: 1.3em;
   color: #DD5600;
 }
 .vBracket {
   font-size: 1.5em;
+}
+
+.version {
+  font-size: 2.0em;
+  font-style: italic;
+}
+
+body {
+  padding-bottom: 70px;
 }
