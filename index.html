@@ -27,6 +27,18 @@
           window.location.protocol = "https";
         }
     </script>
+    <script>
+        // L10n i18n
+        var language = navigator.language || navigator.browserLanguage;
+        var currentHost = window.location.protocol + "//" + window.location.host;
+        var refIsCurrentHost = document.referrer.indexOf(currentHost) > -1;
+        if ( ! refIsCurrentHost) {
+            if (language.slice(0, 2) === "pt" && window.location.pathname !== "/") {
+                window.location.pathname = "/";
+            }
+            window.location.pathname = "/index_en.html";
+        }
+    </script>
 
     <!-- Bootstrap core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
