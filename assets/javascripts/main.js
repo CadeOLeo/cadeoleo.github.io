@@ -35,9 +35,11 @@
         $('#result-version').text(c);
         JqueryFlash.flash($('#result-version'));
 
-        var dateString = $('#dateStart').datepicker('getDate').toISOString().substring(0, 10);
+        var dateStartString = $('#dateStart').datepicker('getDate').toISOString().substring(0, 10);
+        var dateEndString = $('#dateEnd').datepicker('getDate').toISOString().substring(0, 10);
 
-        var url = getUrl() + '?d=' + dateString;
+        var url = getUrl() + '?d1=' + dateStartString
+                           + '&d2=' + dateEndString;
 
         var description = languageDatepicker != 'en' ?
             'Minha versão é ' + c + ' #CadeOLeo' :
@@ -89,12 +91,22 @@
 
     var queryObj = getUrlVars();
 
-    if (queryObj.d !== undefined) {
-        if (/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(queryObj.d)) {
-            var d = queryObj.d;
+    if (queryObj.d1 !== undefined) {
+        if (/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(queryObj.d1)) {
+            var d = queryObj.d1;
             var date = new Date(parseInt(d.substring(0,4)), parseInt(d.substring(5,7)) - 1, parseInt(d.substring(8,10)));
 
             $("#dateStart").datepicker("setDate", date);
+            trigger();
+        }
+    }
+
+    if (queryObj.d2 !== undefined) {
+        if (/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(queryObj.d2)) {
+            var d = queryObj.d2;
+            var date = new Date(parseInt(d.substring(0,4)), parseInt(d.substring(5,7)) - 1, parseInt(d.substring(8,10)));
+
+            $("#dateEnd").datepicker("setDate", date);
             trigger();
         }
     }
