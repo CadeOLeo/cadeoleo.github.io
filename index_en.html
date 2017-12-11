@@ -5,19 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
     <meta name="description" content="CadeOLeo!Ver: The versioning schema for your little ones, cade o leo, cadeoleo, cadeoleo2015, cadeoleo!ver">
     <meta name="author" content="@RogerioPradoJ">
-    <link rel="icon" sizes="256x256" href="assets/images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="256x256" href="assets/images/favicon.ico">
-    <link rel="apple-touch-startup-image" href="assets/images/favicon.ico">
-    <meta name="theme-color" content="#03337C">
-    <meta name="msapplication-navbutton-color" content="#03337C">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#03337C">
-    <meta name="mobile-web-app-capable" content="yes">
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#03337c">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="CadeOLeo">
+    <meta name="application-name" content="CadeOLeo">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="assets/images/mstile-144x144.png">
+    <meta name="msapplication-config" content="assets/images/browserconfig.xml">
+    <meta name="theme-color" content="#03337c">
+    
     <meta name="apple-mobile-web-app-capable" content="yes">
-
+    <meta name="mobile-web-app-capable" content="yes">
+    
     <meta property="og:image" content="https://cadeoleo.github.io/assets/images/favicon.png">
-
+    
     <title>CadeOLeo!Ver</title>
 
     <script>
@@ -27,7 +45,7 @@
           window.location.protocol = "https";
         }
     </script>
-    <script>
+    <!-- <script>
         // L10n i18n
         var language = navigator.language || navigator.browserLanguage;
         var currentHost = window.location.protocol + "//" + window.location.host;
@@ -38,7 +56,7 @@
             }
             window.location.pathname = "/index_en.html";
         }
-    </script>
+    </script> -->
 
     <!-- Bootstrap core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -111,6 +129,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <h2 id="calc" class="text-center">Check your version</h2>
+          <br>
 
           <div class="input-group input-daterange">
               <input id="dateStart" type="text" class="date form-control" placeholder="...">
@@ -224,5 +243,16 @@
 
     <script src="assets/javascripts/cadeoleo.js"></script>
     <script src="assets/javascripts/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
+            navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+                if (typeof registration.update == 'function') {
+                    registration.update();
+                }
+            }).catch(function (e) {
+                console.error('Error during service worker registration:', e);
+            });
+        }
+    </script>
   </body>
 </html>
