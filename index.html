@@ -245,13 +245,15 @@
     <script src="assets/javascripts/cadeoleo.js"></script>
     <script src="assets/javascripts/main.js"></script>
     <script>
-    if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
-        navigator.serviceWorker.register('service-worker.js').then(function (registration) {
-            if (typeof registration.update == 'function') {
-                registration.update();
-            }
-        }).catch(function (e) {
-            console.error('Error during service worker registration:', e);
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('./service-worker.js').then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
         });
     }
     </script>
