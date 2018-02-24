@@ -41,10 +41,68 @@
             "src": "/assets/images/android-chrome-384x384.png",
             "sizes": "384x384",
             "type": "image/png"
+        },
+        {
+            "src": "/assets/images/99c3ddb8-17cb-3963-9189-276480c33889.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/8b66fc37-db6f-0f9b-bb08-908e59368723.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/a835ecd3-fb00-55a2-6626-73ebe511ceaa.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/3471aef3-6999-36ab-ca06-beb7a9f4b66d.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/cdb9b6c5-4a4c-0c74-711a-6bbd6b05ef7d.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/be883106-7384-d930-b9ea-29a0ae08890c.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/8846f77e-bbf7-8960-a6e0-2456603791c6.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/28a98158-a2f1-5c6d-c56a-66d02f71c0a1.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/7579470e-1893-1767-403d-b693cff2cc3b.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/a66b27be-ab63-8489-10e9-4e822959bec4.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/eec7fe49-2102-8e4a-4296-cd8e3d2c662e.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
         }
     ],
-    "start_url": "/",
+    "start_url": "https://cadeoleo.github.io/",
     "theme_color": "#03337c",
     "background_color": "#03337c",
-    "display": "standalone"
+    "display": "standalone",
+    "orientation": "any",
+    "lang": "pt-br",
+    "description": "CadeOLeo!Ver: O esquema de versionamento para seus pequenos, cade o leo, cadeoleo, cadeoleo2015, cadeoleo!ver"
 }
