@@ -1,8 +1,56 @@
 (function(){
     var leoBirthday = new Date(document.getElementById('leo-birthday').getAttribute('data-leo-birthday'));
+
+    function daysUntilNextBirthday(birthday) {
+        var daysUntilNextBirthday = 0;
+
+        var birthday = new moment.utc(birthday);
+
+        var thisYear = (new moment().year());
+
+        var birthdayThisYear = new moment(
+                thisYear + '-' + birthday.format('MM') + '-' + birthday.format('DD'),
+                'YYYY-MM-DD'
+        );
+        var birthdayNextYear = new moment(birthdayThisYear).add(1, 'year');
+
+        var hadBirthdayThisYear = birthdayThisYear.isBefore(moment());
+
+        // console.log({birthday});
+        // console.log({thisYear});
+        // console.log({birthdayThisYear});
+        // console.log({birthdayNextYear});
+        // console.log({hadBirthdayThisYear});
+
+        if (hadBirthdayThisYear) {
+            daysUntilNextBirthday = birthdayNextYear.diff(
+                moment(),
+                'days'
+            );
+        } else {
+            daysUntilNextBirthday =  birthdayThisYear.diff(
+                moment(),
+                'days'
+            );
+        }
+
+        // console.log({daysUntilNextBirthday});
+
+        return daysUntilNextBirthday;
+
+
+    }
+
+    var leoDaysUntilNextBirthday = daysUntilNextBirthday(leoBirthday);
+
     var today = new Date();
 
     var v = CadeOLeo.Ver.v(leoBirthday, today);
+
+    // console.log({leoBirthday});
+    // console.log({leoDaysUntilNextBirthday});
+    // console.log({today});
+    // console.log({v});
 
     document.getElementById('leo-version').innerText = v;
 
@@ -21,6 +69,52 @@
     });
 
     $("#dateEnd").datepicker("setDate", today);
+
+    var messageDaysUntil = {
+        "pt-BR": {
+            "title": "Quanto falta?",
+            "content": [
+                "Faltam",
+                "dias",
+                "pro niver do Léo!"
+            ]
+        },
+        "en": {
+            "title": "How many days?",
+            "content": [
+                "There are",
+                "days",
+                "until Léo's birthday!"
+            ]
+        }
+    }
+
+    $(function () {
+
+        var content = '<div class="container">' +
+                            '<div class="row text-center">' +
+                                '<p style="font-size: 1em;">' + messageDaysUntil[languageDatepicker].content[0] + '</p>' +
+                                '<p style="font-size: 1.5em;">⏳🎊&nbsp;<span id="leo-days-until" style="font-size: 2em;">'+ leoDaysUntilNextBirthday +'</span>&nbsp;⏳🎊</p>' +
+                                '<p style="font-size: 1.5em;">' + messageDaysUntil[languageDatepicker].content[1] + '</p>' +
+                                '<p style="font-size: 1em;">' + messageDaysUntil[languageDatepicker].content[2] + '</p>' +
+                            ' </div>' +
+                    ' </div>';
+
+
+        $('[data-toggle="popover"]').popover({
+            // trigger: 'focus',
+            html: true,
+            title: '<p class="text-center" style="padding: 0; margin: 0;">🎂🎈🎉' + messageDaysUntil[languageDatepicker].title + '🎂🎈🎉</p>',
+            content: content,
+            placement: 'bottom',
+            delay: {
+                show: 200,
+                hide: 0
+            },
+            toggle: 'popover'
+        });
+
+    });
 
     function trigger() {
         c = CadeOLeo.Ver.v(
