@@ -102,7 +102,7 @@
 
 
         $('[data-toggle="popover"]').popover({
-            // trigger: 'focus',
+            trigger: 'focus',
             html: true,
             title: '<p class="text-center" style="padding: 0; margin: 0;">🎂🎈🎉' + messageDaysUntil[languageDatepicker].title + '🎂🎈🎉</p>',
             content: content,
