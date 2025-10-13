@@ -2,42 +2,27 @@
     var leoBirthday = new Date(document.getElementById('leo-birthday').getAttribute('data-leo-birthday'));
 
     function daysUntilNextBirthday(birthday) {
+        // Normalize birthday and now to UTC and start of day to avoid off-by-one
+        var b = moment.utc(birthday).startOf('day');
+
+        var now = moment.utc().startOf('day');
+
+        var thisYear = now.year();
+
+        var birthdayThisYear = moment.utc(thisYear + '-' + b.format('MM') + '-' + b.format('DD'), 'YYYY-MM-DD').startOf('day');
+        var birthdayNextYear = moment.utc(birthdayThisYear).add(1, 'year').startOf('day');
+
+        var hadBirthdayThisYear = birthdayThisYear.isBefore(now);
+
         var daysUntilNextBirthday = 0;
 
-        var birthday = new moment.utc(birthday);
-
-        var thisYear = (new moment().year());
-
-        var birthdayThisYear = new moment(
-                thisYear + '-' + birthday.format('MM') + '-' + birthday.format('DD'),
-                'YYYY-MM-DD'
-        );
-        var birthdayNextYear = new moment(birthdayThisYear).add(1, 'year');
-
-        var hadBirthdayThisYear = birthdayThisYear.isBefore(moment());
-
-        // console.log({birthday});
-        // console.log({thisYear});
-        // console.log({birthdayThisYear});
-        // console.log({birthdayNextYear});
-        // console.log({hadBirthdayThisYear});
-
         if (hadBirthdayThisYear) {
-            daysUntilNextBirthday = birthdayNextYear.diff(
-                moment(),
-                'days'
-            );
+            daysUntilNextBirthday = birthdayNextYear.diff(now, 'days');
         } else {
-            daysUntilNextBirthday =  birthdayThisYear.diff(
-                moment(),
-                'days'
-            );
+            daysUntilNextBirthday = birthdayThisYear.diff(now, 'days');
         }
 
-        // console.log({daysUntilNextBirthday});
-
         return daysUntilNextBirthday;
-
 
     }
 
