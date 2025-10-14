@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
+import utc from 'dayjs/plugin/utc.js';
 import * as bootstrap from 'bootstrap';
 import { daysUntilNextBirthday } from './modules/days.js';
 import { ver } from './modules/version.js';
