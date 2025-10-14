@@ -40,6 +40,9 @@ coverage/
 # Development build directory
 dev-dist/
 
+# Production build output (built by CI)
+dist/
+
 # Test files
 test-*.html
 test-*.mjs
