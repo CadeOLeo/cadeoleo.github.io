@@ -113,6 +113,14 @@ body {
   content: "\e802";
 }
 
+/* Legacy Bootstrap glyphicon alias for popsicle icon */
+.glyphicon.glyphicon-ice-lolly-tasted:before {
+  font-family: cadeoleo;
+  content: "\e809"; /* same glyph as .cadeoleo-skate */
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
 /* Responsive adjustments */
 @media (max-width: 576px) {
   .version-display {
