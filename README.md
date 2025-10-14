@@ -8,12 +8,16 @@
 
 - Node.js (LTS version recommended)
 - npm
+- Bower (`npm install -g bower`)
 
 ### Installation
 
 ```bash
-# Install project dependencies
+# Install npm dependencies (for development)
 npm install
+
+# Install Bower dependencies (for frontend)
+bower install
 ```
 
 ### Testing
