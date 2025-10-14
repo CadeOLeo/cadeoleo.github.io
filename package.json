@@ -1,13 +1,21 @@
 {
   "name": "cadeoleo.github.io",
   "version": "1.0.0",
-  "description": "Tests for CadeOLeo date calculations",
+  "description": "CadeOLeo - Baptism Countdown",
   "private": true,
+  "type": "module",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "dayjs": "^1.11.10"
   },
   "devDependencies": {
-    "mocha": "^10.2.0",
-    "moment": "^2.29.4"
+    "vite": "^5.0.0",
+    "vitest": "^0.34.6"
   }
 }
