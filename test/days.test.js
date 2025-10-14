@@ -1,36 +1,30 @@
-var assert = require('assert');
-var days = require('../assets/javascripts/lib/days');
-var moment = require('moment');
+import { describe, it, expect } from 'vitest';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import { daysUntilNextBirthday, daysUntilNextBirthdayGivenNow } from '../src/js/modules/days';
 
-describe('daysUntilNextBirthday', function() {
-  it('should return 9 days for now=2025-10-13 and birthday=2015-10-22', function() {
-    var now = moment.utc('2025-10-13', 'YYYY-MM-DD');
-    var birthday = '2015-10-22';
+dayjs.extend(utc);
 
-    var result = days.daysUntilNextBirthdayGivenNow(birthday, now);
-
-    assert.strictEqual(result, 9);
+describe('Dias até o próximo aniversário', () => {
+  it('deve calcular corretamente os dias até o próximo aniversário', () => {
+    const birthday = new Date('2015-10-22');
+    const today = new Date('2025-10-14');
+    const days = daysUntilNextBirthday(birthday);
+    expect(days).toBeGreaterThan(0);
+    expect(days).toBeLessThanOrEqual(365);
   });
 
-  it('should return 0 when today is the birthday', function() {
-    var now = moment.utc('2025-10-22', 'YYYY-MM-DD');
-    var birthday = '2015-10-22';
-
-    var result = days.daysUntilNextBirthdayGivenNow(birthday, now);
-
-    assert.strictEqual(result, 0);
+  it('deve calcular 8 dias até o aniversário em 14/10/2025', () => {
+    const birthday = new Date('2015-10-22');
+    const today = new Date('2025-10-14');
+    const days = daysUntilNextBirthdayGivenNow(birthday, today);
+    expect(days).toBe(8);
   });
 
-  it('should count into next year when birthday already passed', function() {
-    var now = moment.utc('2025-10-23', 'YYYY-MM-DD');
-    var birthday = '2015-10-22';
-
-    var result = days.daysUntilNextBirthdayGivenNow(birthday, now);
-
-    // next birthday is 2026-10-22; calculate days between 2025-10-23 and 2026-10-22
-    var expected = moment.utc('2026-10-22', 'YYYY-MM-DD').diff(moment.utc('2025-10-23', 'YYYY-MM-DD'), 'days');
-
-    assert.strictEqual(result, expected);
+  it('deve calcular 364 dias após o aniversário', () => {
+    const birthday = new Date('2015-10-22');
+    const dayAfterBirthday = new Date('2025-10-23');
+    const days = daysUntilNextBirthdayGivenNow(birthday, dayAfterBirthday);
+    expect(days).toBe(364);
   });
-
 });

@@ -1,13 +1,34 @@
 {
   "name": "cadeoleo.github.io",
   "version": "1.0.0",
-  "description": "Tests for CadeOLeo date calculations",
+  "description": "CadeOLeo - Baptism Countdown",
   "private": true,
+  "type": "module",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest --config vitest.config.js",
+    "test:ui": "vitest --ui --config vitest.config.js",
+    "test:coverage": "vitest run --coverage --config vitest.config.js",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "dayjs": "^1.11.10",
+    "vite-plugin-pwa": "^1.1.0",
+    "workbox-build": "^7.3.0",
+    "workbox-precaching": "^7.3.0",
+    "workbox-routing": "^7.3.0",
+    "workbox-strategies": "^7.3.0"
   },
   "devDependencies": {
-    "mocha": "^10.2.0",
-    "moment": "^2.29.4"
+    "@playwright/test": "^1.40.0",
+    "@testing-library/dom": "^9.3.3",
+    "@testing-library/jest-dom": "^6.1.4",
+    "jsdom": "^22.1.0",
+    "vite": "^7.1.9",
+    "vitest": "^3.2.4"
   }
 }

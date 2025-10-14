@@ -1,0 +1,25 @@
+{
+  "name": "cadeoleo.github.io",
+  "version": "1.0.0",
+  "description": "CadeOLeo - Baptism Countdown",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "dayjs": "^1.11.10"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "jsdom": "^27.0.0",
+    "vite": "^5.0.0",
+    "vitest": "^0.34.6"
+  }
+}

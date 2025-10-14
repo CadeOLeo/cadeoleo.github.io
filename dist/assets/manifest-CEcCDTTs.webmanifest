@@ -1,0 +1,43 @@
+{
+    "short_name": "CadeOLeo",
+    "name": "CadeOLeo!Ver",
+    "icons": [
+        {
+            "src": "assets/android-chrome-192x192-C9nVzFw7.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/android-chrome-512x512-DV81h0bU.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/apple-touch-icon-180x180-CpB4CXRD.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/favicon-16x16-Cy7rMpWt.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/favicon-32x32-BT8dE5kX.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/favicon-DT1Ygn8_.ico",
+            "sizes": "48x48",
+            "type": "image/x-icon"
+        }
+    ],
+    "start_url": ".",
+    "theme_color": "#03337c",
+    "background_color": "#03337c",
+    "display": "standalone",
+    "orientation": "any",
+    "lang": "pt-br",
+    "description": "CadeOLeo!Ver: O esquema de versionamento para seus pequenos, cade o leo, cadeoleo, cadeoleo2015, cadeoleo!ver"
+}
