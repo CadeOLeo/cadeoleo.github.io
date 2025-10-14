@@ -101,6 +101,18 @@ body {
   content: "\e80a";
 }
 
+.cadeoleo-skate:before {
+  content: "\e809";
+}
+
+.cadeoleo-two:before {
+  content: "\e80c";
+}
+
+.cadeoleo-heart:before {
+  content: "\e802";
+}
+
 /* Responsive adjustments */
 @media (max-width: 576px) {
   .version-display {
