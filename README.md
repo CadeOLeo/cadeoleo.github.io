@@ -4,20 +4,18 @@
 
 ## Development
 
+
 ### Prerequisites
 
 - Node.js (LTS version recommended)
 - npm
-- Bower (`npm install -g bower`)
 
 ### Installation
 
 ```bash
-# Install npm dependencies (for development)
 npm install
-
-# Install Bower dependencies (for frontend)
 bower install
+
 ```
 
 ### Testing
@@ -37,48 +35,34 @@ The tests validate:
 
 ### Running Locally
 
+
 After installing dependencies, you can:
 
-1. Open `index.html` in your browser
-2. Use the date picker to calculate versions
-3. Check Leo's version and countdown
+1. Execute `npm run dev` to start the local development server (Vite)
+2. Access the app at `http://localhost:5173`
+3. Use the date picker to calculate versions
+4. Check Leo's version and countdown
 
 ## Progressive Web App (PWA)
 
 This project is built as a [Progressive Web App](https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/), providing offline functionality and app-like experience.
 
-### Service Worker
 
-The service worker handles caching of assets for offline use:
+### Service Worker & PWA
 
-- JavaScript files (including modules)
-- CSS and images
-- HTML templates
-- Third-party dependencies (moment.js, bootstrap, etc.)
+The service worker and PWA features are managed automatically via [Vite](https://vitejs.dev/) and [vite-plugin-pwa](https://vite-plugin-pwa.netlify.app/):
 
-To update the service worker cache:
+- Offline support and asset caching
+- Automatic manifest and service worker generation
+- No manual sw-precache or Bower required
 
-```bash
-# Install sw-precache globally (if not already installed)
-npm install -g sw-precache
-
-# Generate/update service worker
-sw-precache --config=sw-precache-config.js --verbose
-```
-
-The cache configuration is in `sw-precache-config.js`. When adding new static assets:
-
-1. Add the file path to `staticFileGlobs` in `sw-precache-config.js`
-2. Regenerate the service worker
-3. Commit both `sw-precache-config.js` and `service-worker.js`
 
 ### Web Manifest & Assets
 
 For PWA installation support:
 
-- Web Manifest: `manifest.json` defines app metadata
+- Web Manifest: Generated automatically in `dist/assets/manifest-*.webmanifest`
 - Icons: Generated using [Real Favicon Generator](https://realfavicongenerator.net/)
-- Additional features: Added via [PWA Builder](https://www.pwabuilder.com/)
 
 ### Offline Support
 
@@ -89,13 +73,15 @@ The app works offline after the first visit:
 3. Previously loaded versions are available
 4. New visits require connectivity
 
+
 ## Building & Deployment
 
-The project is hosted on GitHub Pages and requires:
+The project is hosted on GitHub Pages:
 
-1. All static assets committed to the repository
-2. Service worker updated when assets change
-3. Web manifest kept in sync with app version
+1. Execute `npm run build` to generate the production files in `dist/`
+2. Push the contents of `dist/` to the `gh-pages` branch or configure GitHub Pages to serve from `/docs` or `/dist`
+3. All static assets, manifest, and service worker are generated and ready for deployment
+
 
 ## Contributing
 
