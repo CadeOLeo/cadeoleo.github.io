@@ -7,6 +7,7 @@ module.exports = {
         'pwabuilder-sw-register.js',
         'assets/images/**.*',
         'assets/javascripts/cadeoleo.js',
+        'assets/javascripts/lib/days.js',
         'assets/javascripts/main.js',
         'assets/stylesheets/**.*',
         'bower_components/bootstrap/dist/css/*',

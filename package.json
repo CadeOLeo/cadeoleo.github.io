@@ -1,0 +1,13 @@
+{
+  "name": "cadeoleo.github.io",
+  "version": "1.0.0",
+  "description": "Tests for CadeOLeo date calculations",
+  "private": true,
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "moment": "^2.29.4"
+  }
+}

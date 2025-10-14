@@ -1,47 +1,15 @@
 (function(){
     var leoBirthday = new Date(document.getElementById('leo-birthday').getAttribute('data-leo-birthday'));
 
-    function daysUntilNextBirthday(birthday) {
-        var daysUntilNextBirthday = 0;
+    // Use shared days helper (CadeOLeoDays). Support require() in environments that have it.
+    var DaysHelper = (typeof require === 'function') ? require('./lib/days') : (window.CadeOLeoDays || {});
 
-        var birthday = new moment.utc(birthday);
-
-        var thisYear = (new moment().year());
-
-        var birthdayThisYear = new moment(
-                thisYear + '-' + birthday.format('MM') + '-' + birthday.format('DD'),
-                'YYYY-MM-DD'
-        );
-        var birthdayNextYear = new moment(birthdayThisYear).add(1, 'year');
-
-        var hadBirthdayThisYear = birthdayThisYear.isBefore(moment());
-
-        // console.log({birthday});
-        // console.log({thisYear});
-        // console.log({birthdayThisYear});
-        // console.log({birthdayNextYear});
-        // console.log({hadBirthdayThisYear});
-
-        if (hadBirthdayThisYear) {
-            daysUntilNextBirthday = birthdayNextYear.diff(
-                moment(),
-                'days'
-            );
-        } else {
-            daysUntilNextBirthday =  birthdayThisYear.diff(
-                moment(),
-                'days'
-            );
-        }
-
-        // console.log({daysUntilNextBirthday});
-
-        return daysUntilNextBirthday;
-
-
+    var leoDaysUntilNextBirthday = 0;
+    if (DaysHelper && typeof DaysHelper.daysUntilNextBirthday === 'function') {
+        leoDaysUntilNextBirthday = DaysHelper.daysUntilNextBirthday(leoBirthday);
+    } else if (window.CadeOLeoDays && typeof window.CadeOLeoDays.daysUntilNextBirthday === 'function') {
+        leoDaysUntilNextBirthday = window.CadeOLeoDays.daysUntilNextBirthday(leoBirthday);
     }
-
-    var leoDaysUntilNextBirthday = daysUntilNextBirthday(leoBirthday);
 
     var today = new Date();
 
