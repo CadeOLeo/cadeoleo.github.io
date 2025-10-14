@@ -113,10 +113,12 @@ body {
   content: "\e802";
 }
 
-/* Legacy Bootstrap glyphicon alias for popsicle icon */
+/* Legacy Bootstrap glyphicon alias for ice-lolly icon 
+   Note: Using skate/patinete glyph (\e809) as closest available icon 
+   for "versioning scheme for your little ones" concept */
 .glyphicon.glyphicon-ice-lolly-tasted:before {
   font-family: cadeoleo;
-  content: "\e809"; /* same glyph as .cadeoleo-skate */
+  content: "\e809"; /* cadeoleo-skate glyph (patinete/skate) */
   font-size: 1.5rem;
   vertical-align: middle;
 }
@@ -125,7 +127,7 @@ body {
 .glyphicon.glyphicon-ice-lolly:before,
 .glyphicon-ice-lolly:before {
   font-family: cadeoleo;
-  content: "\e809"; /* use same popsicle glyph */
+  content: "\e809"; /* use same skate glyph */
   font-size: 1.5rem;
   vertical-align: middle;
 }
