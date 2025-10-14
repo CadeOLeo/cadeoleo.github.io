@@ -46,3 +46,7 @@ dist/
 # Test files
 test-*.html
 test-*.mjs
+
+# Playwright test reports
+playwright-report/
+test-results/
