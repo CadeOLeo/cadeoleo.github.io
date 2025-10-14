@@ -8,9 +8,8 @@ dayjs.extend(utc);
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all Bootstrap components that need JavaScript
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modalEl => new bootstrap.Modal(modalEl));
+    // Bootstrap modals are initialized automatically via data-attributes
+    // No manual initialization needed for aria-hidden compatibility
     const leoBirthday = new Date(document.getElementById('leo-birthday').dataset.leoBirthday);
     const leoDaysUntilNextBirthday = daysUntilNextBirthday(leoBirthday);
     const today = new Date();
