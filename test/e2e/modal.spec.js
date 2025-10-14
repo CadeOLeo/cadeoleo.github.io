@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-test.beforeEach(async ({ page }) => {
-  await page.goto('http://localhost:5173');
+test.beforeEach(async ({ page, baseURL }) => {
+    await page.goto(baseURL + '/');
 });
 
 test('deve mostrar o modal quando o botão é clicado', async ({ page }) => {
