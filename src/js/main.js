@@ -149,3 +149,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// Register service worker for production (if supported)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+        try {
+            const reg = await navigator.serviceWorker.register('/service-worker.js');
+            // Listen for updates and immediately activate
+            if (reg.waiting) {
+                reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+            }
+            reg.addEventListener('updatefound', () => {
+                const newWorker = reg.installing;
+                newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        newWorker.postMessage({ type: 'SKIP_WAITING' });
+                    }
+                });
+            });
+        } catch (err) {
+            // Service worker registration failed
+            console.warn('Service worker registration failed:', err);
+        }
+    });
+}
