@@ -36,3 +36,10 @@ coverage/
 
 # Output of 'npm pack'
 *.tgz
+
+# Development build directory
+dev-dist/
+
+# Test files
+test-*.html
+test-*.mjs
