@@ -23,7 +23,13 @@ export function daysUntilNextBirthdayGivenNow(birthday, nowMoment) {
   const birthdayThisYear = dayjs(`${thisYear}-${b.format('MM')}-${b.format('DD')}`).startOf('day');
   const birthdayNextYear = birthdayThisYear.add(1, 'year').startOf('day');
 
-  const hadBirthdayThisYear = birthdayThisYear.isBefore(now) || birthdayThisYear.isSame(now);
+  // If today is the birthday, return 0
+  if (birthdayThisYear.isSame(now)) {
+    return 0;
+  }
+  
+  // If birthday already happened this year, calculate days until next year
+  const hadBirthdayThisYear = birthdayThisYear.isBefore(now);
   if (hadBirthdayThisYear) {
     return birthdayNextYear.diff(now, 'day');
   } else {

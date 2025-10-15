@@ -1,15 +1,29 @@
 import dayjs from 'dayjs';
 import * as bootstrap from 'bootstrap';
-import { daysUntilNextBirthday } from './modules/days.js';
+import { daysUntilNextBirthdayGivenNow } from './modules/days.js';
 import { ver } from './modules/version.js';
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Bootstrap modals are initialized automatically via data-attributes
     // No manual initialization needed for aria-hidden compatibility
-    const leoBirthday = new Date(document.getElementById('leo-birthday').dataset.leoBirthday);
-    const leoDaysUntilNextBirthday = daysUntilNextBirthday(leoBirthday);
-    const today = new Date();
+    
+    // Check for URL parameters to simulate dates
+    const params = new URLSearchParams(window.location.search);
+    let leoBirthday = new Date(document.getElementById('leo-birthday').dataset.leoBirthday);
+    let today = new Date();
+    
+    // If d1 and d2 are provided in URL, use them for simulation
+    if (params.has('d1') && params.has('d2')) {
+        const d1 = params.get('d1');
+        const d2 = params.get('d2');
+        if (/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(d1) && /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(d2)) {
+            leoBirthday = new Date(d1);
+            today = new Date(d2);
+        }
+    }
+    
+    const leoDaysUntilNextBirthday = daysUntilNextBirthdayGivenNow(leoBirthday, today);
     
     // Update version display
     const v = ver(leoBirthday, today);
@@ -39,7 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Create popover content
-    const content = `
+    let popoverTitle = messageDaysUntil[languageDatepicker].title;
+    let popoverContent = `
         <div class="container">
             <div class="row text-center">
                 <p class="fs-6">${messageDaysUntil[languageDatepicker].content[0]}</p>
@@ -50,13 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    if (leoDaysUntilNextBirthday === 0) {
+        popoverTitle = languageDatepicker === 'en' ? "It's today!" : "É hoje!";
+        popoverContent = `<div class="container"><div class="row text-center"><p class="fs-4">🎈🎂 Parabéns para o Léo! 🎂🎈</p></div></div>`;
+    }
+
     // Initialize all popovers
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
     [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {
         trigger: 'focus',
         html: true,
-        title: `<p class="text-center m-0">🎂🎈🎉${messageDaysUntil[languageDatepicker].title}🎂🎈🎉</p>`,
-        content: content,
+        title: `<p class="text-center m-0">🎂🎈🎉${popoverTitle}🎂🎈🎉</p>`,
+        content: popoverContent,
         placement: 'bottom',
         delay: { show: 200, hide: 0 }
     }));
@@ -121,8 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dateEnd.value = dayjs().format('YYYY-MM-DD');
     }
 
-    // Handle URL parameters
-    const params = new URLSearchParams(window.location.search);
+    // Handle URL parameters (already parsed at the top)
     if (params.has('d1')) {
         const d1 = params.get('d1');
         if (/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(d1)) {
