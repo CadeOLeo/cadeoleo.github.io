@@ -18,6 +18,10 @@ body {
   padding-bottom: 70px;
 }
 
+.bg-version {
+  background-color: #eee;
+}
+
 .version {
   font-family: monospace;
   padding: 0.5rem 1rem;

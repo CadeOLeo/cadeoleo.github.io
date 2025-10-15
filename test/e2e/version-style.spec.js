@@ -15,10 +15,10 @@ test.describe('Version span style', () => {
     expect(bgColor).toBe('rgb(238, 238, 238)'); // #eee
   });
 
-  test('hero section should have gray background via Bootstrap bg-body-tertiary', async ({ page, baseURL }) => {
+  test('hero section should have same gray background as version spans', async ({ page, baseURL }) => {
     await page.goto(baseURL + '/');
-    const hero = await page.locator('.bg-body-tertiary').first();
-    await expect(hero).toBeVisible();
-    // Just verify the class exists and element is visible
+    const hero = await page.locator('.bg-version').first();
+    const bgColor = await hero.evaluate(el => getComputedStyle(el).backgroundColor);
+    expect(bgColor).toBe('rgb(238, 238, 238)'); // #eee - same as .version
   });
 });
