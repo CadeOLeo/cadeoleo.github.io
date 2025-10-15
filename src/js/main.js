@@ -1,10 +1,7 @@
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc.js';
 import * as bootstrap from 'bootstrap';
 import { daysUntilNextBirthday } from './modules/days.js';
 import { ver } from './modules/version.js';
-
-dayjs.extend(utc);
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -68,8 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const dateStart = document.getElementById('dateStart').value;
         const dateEnd = document.getElementById('dateEnd').value;
         
-        const startDate = dayjs.utc(dateStart);
-        const endDate = dayjs.utc(dateEnd);
+        const startDate = dayjs(dateStart);
+        const endDate = dayjs(dateEnd);
         
         let c = ver(startDate, endDate);
         

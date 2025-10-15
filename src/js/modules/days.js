@@ -1,10 +1,7 @@
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc.js';
-
-dayjs.extend(utc);
 
 /**
- * Returns number of days until next birthday from now (UTC)
+ * Returns number of days until next birthday from now (local timezone)
  * @param {Date|string|number} birthday
  * @returns {number}
  */
@@ -13,17 +10,17 @@ export function daysUntilNextBirthday(birthday) {
 }
 
 /**
- * Returns number of days until next birthday from a given 'now' date (UTC)
+ * Returns number of days until next birthday from a given 'now' date (local timezone)
  * @param {Date|string|number} birthday
  * @param {Date|string|number} nowMoment
  * @returns {number}
  */
 export function daysUntilNextBirthdayGivenNow(birthday, nowMoment) {
-  const b = dayjs.utc(birthday).startOf('day');
-  const now = dayjs.utc(nowMoment).startOf('day');
+  const b = dayjs(birthday).startOf('day');
+  const now = dayjs(nowMoment).startOf('day');
 
   const thisYear = now.year();
-  const birthdayThisYear = dayjs.utc(`${thisYear}-${b.format('MM')}-${b.format('DD')}`).startOf('day');
+  const birthdayThisYear = dayjs(`${thisYear}-${b.format('MM')}-${b.format('DD')}`).startOf('day');
   const birthdayNextYear = birthdayThisYear.add(1, 'year').startOf('day');
 
   const hadBirthdayThisYear = birthdayThisYear.isBefore(now) || birthdayThisYear.isSame(now);
