@@ -35,13 +35,35 @@ The tests validate:
 
 ### Running Locally
 
-
 After installing dependencies, you can:
 
 1. Execute `npm run dev` to start the local development server (Vite)
 2. Access the app at `http://localhost:5173`
 3. Use the date picker to calculate versions
 4. Check Leo's version and countdown
+
+#### Testing with Specific Dates
+
+You can simulate specific dates by passing URL parameters:
+
+```url
+http://localhost:5173/?d1=YYYY-MM-DD&d2=YYYY-MM-DD
+```
+
+- `d1`: Birth date (e.g., `2015-10-22`)
+- `d2`: Current date to simulate (e.g., `2025-10-22`)
+
+**Examples:**
+
+- Test birthday day: `http://localhost:5173/?d1=2015-10-22&d2=2025-10-22`
+- Test one day before birthday: `http://localhost:5173/?d1=2015-10-22&d2=2025-10-21`
+- Test custom dates: `http://localhost:5173/?d1=2015-10-22&d2=2025-12-25`
+
+This is useful for:
+
+- Testing the birthday popover message ("É hoje!" / "It's today!")
+- Validating date calculations without changing system time
+- E2E test development and debugging
 
 ## Progressive Web App (PWA)
 
