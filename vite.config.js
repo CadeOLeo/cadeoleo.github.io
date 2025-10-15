@@ -5,6 +5,11 @@ import { resolve } from 'path';
 export default defineConfig({
   root: 'dev',
   publicDir: '../assets',
+  resolve: {
+    alias: {
+      '/src': resolve(__dirname, './src'),
+    },
+  },
   build: {
     outDir: '../dist',
     assetsDir: 'assets',
