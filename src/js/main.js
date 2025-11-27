@@ -7,12 +7,12 @@ import { ver } from './modules/version.js';
 document.addEventListener('DOMContentLoaded', () => {
     // Bootstrap modals are initialized automatically via data-attributes
     // No manual initialization needed for aria-hidden compatibility
-    
+
     // Check for URL parameters to simulate dates
     const params = new URLSearchParams(window.location.search);
     let leoBirthday = new Date(document.getElementById('leo-birthday').dataset.leoBirthday);
     let today = new Date();
-    
+
     // If d1 and d2 are provided in URL, use them for simulation
     if (params.has('d1') && params.has('d2')) {
         const d1 = params.get('d1');
@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
             today = new Date(d2);
         }
     }
-    
+
     const leoDaysUntilNextBirthday = daysUntilNextBirthdayGivenNow(leoBirthday, today);
-    
+
     // Update version display
     const v = ver(leoBirthday, today);
     document.getElementById('leo-version').textContent = v;
@@ -84,19 +84,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleDateChange() {
         const dateStart = document.getElementById('dateStart').value;
         const dateEnd = document.getElementById('dateEnd').value;
-        
+
         const startDate = dayjs(dateStart);
         const endDate = dayjs(dateEnd);
-        
+
         let c = ver(startDate, endDate);
-        
+
         if (c === 'vNaN.NaN.NaN') {
             c = 'v0.0.0';
         }
 
         const resultVersion = document.getElementById('result-version');
         resultVersion.textContent = c;
-        
+
         // Flash animation using CSS
         resultVersion.classList.add('flash');
         setTimeout(() => resultVersion.classList.remove('flash'), 1000);
@@ -105,8 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         url.searchParams.set('d1', dateStart);
         url.searchParams.set('d2', dateEnd);
 
-        const description = languageDatepicker !== 'en' 
-            ? `Minha versão é ${c} #CadeOLeo` 
+        const description = languageDatepicker !== 'en'
+            ? `Minha versão é ${c} #CadeOLeo`
             : `My version is ${c} #CadeOLeo`;
 
         const shareData = {
@@ -165,26 +165,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Register service worker for production (if supported)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', async () => {
-        try {
-            const reg = await navigator.serviceWorker.register('/service-worker.js');
-            // Listen for updates and immediately activate
-            if (reg.waiting) {
-                reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-            }
-            reg.addEventListener('updatefound', () => {
-                const newWorker = reg.installing;
-                newWorker.addEventListener('statechange', () => {
-                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                        newWorker.postMessage({ type: 'SKIP_WAITING' });
-                    }
-                });
-            });
-        } catch (err) {
-            // Service worker registration failed
-            console.warn('Service worker registration failed:', err);
-        }
-    });
-}
+
